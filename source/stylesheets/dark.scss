@@ -3,17 +3,17 @@ $color-mode-type: data;
 // Theme toggle from themetoggle.scss
 @include color-mode(dark) {
   // Div styling for theme toggle
-  #theme-selector {
+  .theme-selector {
     button:focus-visible {
       outline-color: var(--bs-secondary-text-emphasis);
     }
   }
 
   // Theme dropdown list styling
-  #theme-button-list {
+  .theme-button-list {
     .bi {
       opacity: 90%;
-      fill: var(--bs-body-color);
+      fill: $off-white;
     }
     .dropdown-menu .dropdown-item.active {
       color: #000;
@@ -27,7 +27,7 @@ $color-mode-type: data;
   // Styling for when the toggle is
   // a part of the phone sreen sidebar
   @include media-breakpoint-down(md) {
-    #theme-selector {
+    .theme-selector {
       // Same color on hover as the
       // Learner View text
       button#bd-theme:hover {
@@ -42,12 +42,13 @@ $color-mode-type: data;
 
 // This section does not correspond to an
 // existing light themed sass file - these
-// are soley for a dark mode
+// are solely for a dark mode
 
   // Darken any images and desaturate
-  .img {
-    filter: brightness(80%) saturate(80%);
+  img.dark-filter {
+    filter: invert(1) hue-rotate(180deg) brightness(90%) saturate(90%);
   }
+
   // Convert any logo to off white
   .large-logo > img {
     filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(52deg) brightness(105%) contrast(101%);
@@ -89,7 +90,7 @@ $color-mode-type: data;
   }
 
   svg .icon {
-    stroke: var(--bs-body-color);
+    stroke: $off-white;
   }
 
   // Make accordion buttons off white
@@ -121,39 +122,65 @@ $color-mode-type: data;
   // Sidebar + and - for smaller screens
   @include media-breakpoint-down(xl) {
 
-    .sidebar .accordion-button.collapsed:not(#instructor):not(#language):not(#chapters):not(#lesson-resources)::after {
+    .sidebar .accordion-button.collapsed:not(#instructor):not(#language):not(#chapters):not(#lesson-resources):not(#links)::after {
       background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23dee2e6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-plus'><line x1='12' y1='5' x2='12' y2='19'></line><line x1='5' y1='12' x2='19' y2='12'></line></svg>");
     }
 
-    .sidebar .accordion-button:not(.collapsed):not(#instructor):not(#language):not(#flush-collapseNine):not(#chapters):not(#lesson-resources)::after {
+    .sidebar .accordion-button:not(.collapsed):not(#instructor):not(#language):not(#flush-collapseNine):not(#chapters):not(#lesson-resources):not(#links)::after {
       background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23dee2e6' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-minus'><line x1='5' y1='12' x2='19' y2='12'></line></svg>");
     }
 
   }
 
 // From styles.css.scss
+  body {
+    font-family: $default_font, sans serif;
+    font-weight: $font_weight_normal;
+    background: $black;
+    color: $off-white;
+  }
+
   h1 {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
   h2 {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
   h3 {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
   h4 {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
   blockquote {
     border-left-color: var(--bs-light-border-subtle);
   }
   p {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
+  li {
+    color: $off-white;
+  }
+  .callout-content p {
+    color: $bright-white;
+    background-color: $dark-grey;
+  }
+  .callout-content a {
+    color: $powder-blue;
+  }
+
+
   a {
-    color: var(--bs-link-hover-color);
+    color: $light-blue;
+    text-decoration: none;
   }
-  #search-button {
+  a.anchor {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='rgb(139, 185, 254)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-link'%3E%3Cpath d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'%3E%3C/path%3E%3Cpath d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'%3E%3C/path%3E%3C/svg%3E");
+  }
+  #search-button-nav {
+    color: #fff;
+  }
+  #search-button-sidebar {
     color: #fff;
   }
   .table-striped > tbody > tr:nth-of-type(even) > * {
@@ -174,9 +201,22 @@ $color-mode-type: data;
     color: var(--bs-highlight-color);
     background: $bright-blue;
   }
-  .figcaption {
-    border-top: 1px solid var(--bs-body-color);
-    background: var(--bs-tertiary-bg);
+  figcaption {
+    border-top: 1px solid $off-white;
+    background: $dark-grey;
+  }
+  .mermaid-img-wrapper {
+    figcaption {
+      border-top: 1px solid $off-white;
+      background: $dark-grey;
+    }
+    details {
+      background: $dark-grey;
+
+      pre {
+        color: $off-white;
+      }
+    }
   }
   .bottom-pagination {
     border-top: 1px solid var(--bs-border-color);
@@ -188,11 +228,15 @@ $color-mode-type: data;
     border-left: 10px solid var(--bs-light-border-subtle);
   }
   .callout-square {
-    color: var(--bs-body-color);
+    color: $off-white;
     background: var(--bs-light-border-subtle);
   }
   .callout-inner {
-    background: var(--bs-tertiary-bg);
+    background: $dark-grey;
+  }
+  .callout-header {
+    color: $off-white;
+    background: var(--bs-light-border-subtle);
   }
 
   /* Overrides for different callout types */
@@ -205,7 +249,12 @@ $color-mode-type: data;
 
   .prereq .callout-square {
     background: shade-color($purple, 10%);
-    color: var(--bs-body-color);
+    color: $off-white;
+  }
+
+  .prereq .callout-header {
+    background: shade-color($purple, 10%);
+    color: $off-white;
   }
 
   /* Keypoints */
@@ -216,7 +265,12 @@ $color-mode-type: data;
 
   .keypoints .callout-square {
     background: shade-color($teal, 30%);
-    color: var(--bs-body-color);
+    color: $off-white;
+  }
+
+  .keypoints .callout-header {
+    background: shade-color($teal, 30%);
+    color: $off-white;
   }
 
   /* Checklist */
@@ -227,7 +281,12 @@ $color-mode-type: data;
 
   .checklist .callout-square {
     background: shade-color($bright-blue, 20%);
-    color: var(--bs-body-color);
+    color: $off-white;
+  }
+
+  .checklist .callout-header {
+    background: shade-color($bright-blue, 20%);
+    color: $off-white;
   }
 
   /* Testimonial */
@@ -238,7 +297,12 @@ $color-mode-type: data;
 
   .testimonial .callout-square {
     background: $deep-purple;
-    color: var(--bs-body-color);
+    color: $off-white;
+  }
+
+  .testimonial .callout-header {
+    background: $deep-purple;
+    color: $off-white;
   }
 
   /* Discussion */
@@ -248,6 +312,11 @@ $color-mode-type: data;
   }
 
   .discussion .callout-square {
+    background: shade-color($yellow, 50%);
+    color: #fff;
+  }
+
+  .discussion .callout-header {
     background: shade-color($yellow, 50%);
     color: #fff;
   }
@@ -266,6 +335,32 @@ $color-mode-type: data;
     color: #fff;
   }
 
+  .challenge .callout-header {
+    background: shade-color($yellow, 50%);
+    color: #fff;
+  }
+
+
+  /* Caution */
+
+  .caution {
+    border-left: 10px solid shade-color($red, 50%);
+    h4 {
+      color: #fff;
+    }
+  }
+
+  .caution .callout-square {
+    background: shade-color($red, 50%);
+    color: #fff;
+  }
+
+  .caution .callout-header {
+    background: shade-color($red, 50%);
+    color: #fff;
+  }
+
+
   /* Parent Class for Accordions in Learner View */
 
   .learner-accordion {
@@ -280,10 +375,10 @@ $color-mode-type: data;
       }
     }
     .accordion-item {
-      border-color: var(--bs-body-bg);
+      border-color: $black;
     }
     .accordion-body {
-      background: var(--bs-tertiary-bg);
+      background: $dark-grey;
     }
     h2 {
       border-left: 10px shade-color($yellow, 50%) solid;
@@ -299,19 +394,19 @@ $color-mode-type: data;
     @extend .learner-accordion;
     .spoiler-button {
       background: var(--bs-tertiary-bg);
-      border-color: var(--bs-body-color);
-      color: var(--bs-body-color);
+      border-color: $off-white;
+      color: $off-white;
       &:focus-visible {
         outline-color: var(--bs-info-border-subtle);
         outline-width: 4px;
         outline-style: solid;
       }
       h3.collapsed {
-        color: var(--bs-body-color);
+        color: $off-white;
       }
     }
     .note-square {
-      color: var(--bs-body-color);
+      color: $off-white;
       background: var(--bs-info-border-subtle);
     }
   }
@@ -346,6 +441,9 @@ $color-mode-type: data;
     &.output {
       border-top: 10px solid var(--bs-tertiary-color);
     }
+    &.citation {
+      border-top: 10px solid shade-color($green, 10%);
+    }
   }
 
   .callout pre {
@@ -362,14 +460,14 @@ $color-mode-type: data;
 
 // From header.scss
   .nav-link {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
   .dropdown-item {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
 
   .bottom-nav {
-    background-color: var(--bs-body-bg);
+    background-color: $black;
   }
 
   .searchbox {
@@ -381,14 +479,15 @@ $color-mode-type: data;
   }
 
   .percentage {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
 
   .progress {
-    background: tint-color($dark-blue, 10%);
+    background: $dark-grey;
   }
   .progress-bar {
-    background: shade-color($blue, 20%);
+    background: shade-color($light-gray, 20%);
+    color: $dark-grey;
   }
   .progress.library {
     background: tint-color($red, 20%);
@@ -409,7 +508,7 @@ $color-mode-type: data;
     background: shade-color($light-purple, 40%);
   }
   .lesson-progress {
-    background: var(--bs-tertiary-bg);
+    background: $black;
   }
 
   .nav-container {
@@ -417,44 +516,44 @@ $color-mode-type: data;
   }
 
   .navbar-toggler {
-    color: var(--bs-body-color);
+    color: $off-white;
   }
 
   .top-nav .dropdown button {
-    background: var(--bs-body-bg);
-    color: var(--bs-body-color);
+    background: $black;
+    color: $off-white;
   }
 
   .top-nav .dropdown .bordered-button {
-    background: var(--bs-body-bg);
-    color: var(--bs-body-color);
-    border-left: 1px solid var(--bs-body-color);
+    background: $black;
+    color: $off-white;
+    border-left: 1px solid $off-white;
   }
 
   #expand-code {
-    color: var(--bs-link-color);
+    color: $light-blue;
   }
 
   @include media-breakpoint-up(md) {
     #to-top {
-      filter: drop-shadow(0px 0px 5px var(--bs-body-bg)) drop-shadow(0px 0px 5px var(--bs-body-bg)) drop-shadow(0px 0px 5px var(--bs-body-bg)) drop-shadow(0px 0px 5px var(--bs-body-bg)) drop-shadow(0px 0px 5px var(--bs-body-bg));
+      filter: drop-shadow(0px 0px 5px $black) drop-shadow(0px 0px 5px $black) drop-shadow(0px 0px 5px $black) drop-shadow(0px 0px 5px $black) drop-shadow(0px 0px 5px $black);
     }
     #to-top i {
-      box-shadow: 0px 0px 10px 10px var(--bs-body-bg);
+      box-shadow: 0px 0px 10px 10px $black;
     }
     .tablet-search-button {
-      color: var(--bs-body-color);
+      color: $off-white;
     }
     .tablet-search-button:hover {
-      color: var(--bs-body-color);
+      color: $off-white;
     }
     .top-nav hr{
-      color: var(--bs-body-color);
+      color: $off-white;
     }
     .top-nav {
-      border-top: 22px solid shade-color($blue, 20%);
+      border-top: 22px solid shade-color($light-blue, 20%);
       .peer-reviewed {
-        border-color: shade-color($blue, 20%);
+        border-color: shade-color($light-blue, 20%);
       }
     }
     .top-nav.data {
@@ -480,7 +579,7 @@ $color-mode-type: data;
   @include media-breakpoint-down(md) {
     .bottom-nav {
       border-bottom: 1px solid var(--bs-border-color);
-      border-top: 22px solid shade-color($blue, 20%);
+      border-top: 22px solid shade-color($light-blue, 20%);
     }
     .bottom-nav.data {
       border-top: 22px solid shade-color($light-green, 20%);
@@ -495,14 +594,14 @@ $color-mode-type: data;
 
   @include media-breakpoint-up(xl) {
     .top-nav hr {
-      color: var(--bs-body-color);
+      color: $off-white;
     }
   }
 
 // From instructornotes.scss
   .instructor-note {
     .note-square {
-      color: var(--bs-body-color);
+      color: $off-white;
       background: shade-color($magenta, 30%);
     }
     .accordion-body {
@@ -510,8 +609,8 @@ $color-mode-type: data;
     }
     .accordion-button {
       background: var(--bs-light-border-subtle);
-      border-color: var(--bs-body-color);
-      color: var(--bs-body-color);
+      border-color: $off-white;
+      color: $off-white;
       box-shadow: none;
       &:focus-visible {
         outline-color: var(--bs-info-border-subtle);
@@ -519,14 +618,14 @@ $color-mode-type: data;
         outline-style: solid;
       }
       &.collapsed {
-        color: var(--bs-body-color);
+        color: $off-white;
       }
     }
   }
 
 // From overview.scss
   .overview .card-header {
-    color: var(--bs-body-color);
+    color: $off-white;
     background: tint-color($dark-purple, 20%);
   }
 
@@ -536,7 +635,7 @@ $color-mode-type: data;
 
   @include media-breakpoint-up(md) {
     .overview .bordered {
-      border-left: 1px solid var(--bs-body-color);
+      border-left: 1px solid $off-white;
     }
   }
 
@@ -544,7 +643,7 @@ $color-mode-type: data;
 // Currently not used
 .skip-link {
   border: 2px solid var(--bs-primary-border-subtle);
-  background: var(--bs-body-bg);
+  background: $black;
   &:focus {
     outline: 2px solid var(--bs-info-border-subtle);
   }
@@ -552,10 +651,10 @@ $color-mode-type: data;
 
 // From sidenav.scss
   .sidebar {
-    background: var(--bs-tertiary-bg);
-    color: var(--bs-body-color);
+    background: $dark-grey;
+    color: $off-white;
     a {
-      color: var(--bs-body-color);
+      color: $off-white;
       &:hover {
         color: $bright-blue;
       }
@@ -564,13 +663,13 @@ $color-mode-type: data;
       }
     }
     .accordion-body {
-      background: var(--bs-tertiary-bg);
+      background: $dark-grey;
     }
     .accordion-item {
-      background: var(--bs-tertiary-bg);
+      background: $dark-grey;
     }
     .accordion-button {
-      background: var(--bs-tertiary-bg);
+      background: $dark-grey;
       &:hover {
         color: var(--bs-link-hover-color);
         text-decoration: underline;
@@ -581,29 +680,30 @@ $color-mode-type: data;
         outline-style: solid;
       }
       &:not(.collapsed) {
-        color: var(--bs-body-color);
+        color: $off-white;
       }
     }
   }
 
   .sidebar-collapsed {
-    background: var(--bs-tertiary-bg);
+    background: $dark-grey;
   }
 
 // Dark mode syntax highlighting
 // Adapted from pkgdown version 2.0.7 (c) RStudio 2024
   pre .img img, pre .r-plt img {
-    background-color: var(--bs-tertiary-bg);
+    background-color: $dark-grey;
   }
 
   code {
-    font-family: 'Source Code Pro', monospace;
-    color: var(--bs-body-color);
+    color: #FFF8DC;
+    background-color: #2B3035;
   }
 
-  p > code {
-    background-color: var(--bs-tertiary-bg);
-  }
+//   p > code:hover {
+//     background-color: #46494d;
+//   }
+
 
   // CODE Style - arrow-dark theme
   pre code         /* Normal         */ {color:#f8f8f2}

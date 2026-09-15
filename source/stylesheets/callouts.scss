@@ -20,29 +20,40 @@
 
 .callout-content {
   padding-top: 25px;
-  padding-bottom: 25px;
+  padding-left: 3px;
 }
 
 .callout-title {
   position: relative;
   font-size: 1.25rem;
-  line-height: 1.75rem;
+  line-height: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  margin: 0px 0px 25px 0px;
-  padding: 24px 0px 0px 0px;
-  text-decoration: underline;
-  text-underline-offset: 6px;
+  margin: 0px 0px 0px 0px;
+  padding: 24px 0px 0px 3px;
   code, kbd {
     text-transform: none;
   }
 }
 
+.callout-header {
+  height: 53px;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 1.75rem;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  margin: 0px 0px 0px 0px;
+  padding: 12px 0px 0px 1px;
+  color: #ffffff;
+  background: $gray;
+}
 
 .callout li {
   margin-left: 0px;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .callout-inner {
@@ -62,6 +73,10 @@
   background: $purple;
 }
 
+.prereq .callout-header {
+  background: $purple;
+}
+
 /* Keypoints */
 
 .keypoints {
@@ -69,6 +84,11 @@
 }
 
 .keypoints .callout-square {
+  background: $teal;
+  color: $black;
+}
+
+.keypoints .callout-header {
   background: $teal;
   color: $black;
 }
@@ -84,6 +104,11 @@
   color: #ffffff;
 }
 
+.checklist .callout-header {
+  background: $bright-blue;
+  color: #ffffff;
+}
+
 /* Testimonial */
 
 .testimonial {
@@ -91,6 +116,11 @@
 }
 
 .testimonial .callout-square {
+  background: $deep-purple;
+  color: #ffffff;
+}
+
+.testimonial .callout-header {
   background: $deep-purple;
   color: #ffffff;
 }
@@ -106,6 +136,11 @@
   color: $black;
 }
 
+.discussion .callout-header {
+  background: $yellow;
+  color: $black;
+}
+
 /* Challenge */
 
 .challenge {
@@ -116,6 +151,28 @@
   background: $yellow;
   color: $black;
 }
+
+.challenge .callout-header {
+  background: $yellow;
+  color: $black;
+}
+
+/* Caution */
+
+.caution {
+  border-left: 10px solid $red;
+}
+
+.caution .callout-square {
+  background: $red;
+  color: #ffffff;
+}
+
+.caution .callout-header {
+  background: $red;
+  color: #ffffff;
+}
+
 
 /* Parent Class for Accordions in Learner View */
 
@@ -138,10 +195,10 @@
   }
   .accordion-item {
     border-color: $black;
-    font-family: Mulish;
+    font-family: $default_font;
     font-style: normal;
     font-weight: normal;
-    font-size: 1.2rem;
+    font-size: 1rem;
     &:first-of-type .accordion-button {
       border-radius: 0;
     }
@@ -151,7 +208,7 @@
     }
   }
   .accordion-header {
-    font-family: Mulish;
+    font-family: $default_font;
     font-style: normal;
     font-weight: normal;
     font-size: 1.2rem;
@@ -166,7 +223,7 @@
       list-style-position: inside;
       margin-left: 0px;
       margin-top:10px;
-      margin-bottom:20px;
+      margin-bottom:10px;
     }
   }
   h2 {
@@ -197,15 +254,14 @@
       box-shadow: #0d6efd 0px 0px 0px 4px;
     }
     &, h3 {
-      font-family: Mulish;
+      font-family: $default_font;
       font-size: 1.2rem;
       font-style: normal;
       font-weight: normal;
       text-transform: uppercase;
     }
     h3 {
-      text-decoration: underline;
-      text-underline-offset: 25px;
+      text-decoration: none;
       margin-left: 65px;
     }
     &.collapsed {

@@ -9,7 +9,7 @@ div.sourceCode {
 /* ZNK: added in 2022-01-07 */
 
 pre {
-  font-family: 'Source Code Pro', monospace;
+  font-family: $mono_font, monospace;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -18,6 +18,7 @@ pre {
   padding: 25px;
   letter-spacing: 0.01em;
   background: $light-gray;
+  color: $black;
   &.input {
     border-top: 10px solid $light-blue;
   }
@@ -34,6 +35,9 @@ pre {
   }
   &.output {
     border-top: 10px solid $black;
+  }
+  &.citation {
+    border-top: 10px solid $green;
   }
   /* ZNK: added in 2022-01-07 */
   /* highlighted code uses spans that need a line break before to avoid */
@@ -59,11 +63,18 @@ pre {
 // this prevents pkgdown syntax highlighting from destroying our wrappings
 pre, pre code {
   white-space: pre;
+  background: inherit;
 }
 
 pre.output > code::before {
   content: "\A";
 }
+
+pre.citation > code {
+  display: block;
+  white-space: pre-wrap;
+}
+
 // ZNK: end
 
 // ZNK: added in 2022-01-17

@@ -8,20 +8,21 @@ pre .img img, pre .r-plt img {
 }
 
 code {
-  font-family: 'Source Code Pro', monospace;
-  color: #000;
+  font-family: $mono_font, monospace;
+  border-radius: 4px;
+  padding: 0.13rem 0.35rem;
+  color: $black;
+  background-color: #f0f0f0;
 }
 
-p > code {
-  background-color: #fff;
-  border-radius: 4px;
-  font-size: 1em;
-}
+// p > code:hover {
+//   background-color: #d8d8d8;
+// }
 
 /* Links ---------------------------------------------------- */
 
 code a:any-link {
-  font-family: 'Source Code Pro', monospace;
+  font-family: $mono_font, monospace;
   border-radius: 4px;
   text-decoration: underline;
   text-decoration-color: $gray-400;

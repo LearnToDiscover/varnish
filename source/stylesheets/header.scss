@@ -1,3 +1,8 @@
+nav.lesson-content {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
 .bottom-nav {
   border-top: 45px solid $dark-blue;
   padding-bottom: 5px;
@@ -9,6 +14,10 @@
 
 .bottom-nav.data {
   border-top: 45px solid $dark-green;
+}
+
+.bottom-nav.high-performance-computing {
+  border-top: 45px solid $brown;
 }
 
 .bottom-nav.library{
@@ -28,7 +37,7 @@
 }
 
 .mobile-title {
-  font-family: Mulish;
+  font-family: $default_font;
   font-style: normal;
   font-weight: 800;
   font-size: 24px;
@@ -44,31 +53,28 @@
 
 .percentage {
   text-align: right;
-  position: relative;
-  top: 5px;
-  right: -20px;
+  position: sticky;
+  padding-left: 10px;
   color: $black;
 }
 
 .progress {
   background: $very-light-blue;
-  border-radius: 20px;
-  margin: 10px;
-  height: 5px;
+  margin-left: 28px;
+  margin-right: 12px;
+  padding-top: 0px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 }
 
 .progress-bar {
   background: $dark-blue;
   border-radius: 20px;
   height:5px;
-}
-
-.progress.library {
-  background: $light-red;
-}
-
-.progress-bar.library {
-  background: $red;
+  padding: 10px;
 }
 
 .progress.data {
@@ -77,6 +83,22 @@
 
 .progress-bar.data {
   background: $dark-green;
+}
+
+.progress.high-performance-computing {
+  background: $orange;
+}
+
+.progress-bar.high-performance-computing {
+  background: $brown;
+}
+
+.progress.library {
+  background: $light-red;
+}
+
+.progress-bar.library {
+  background: $red;
 }
 
 .progress.software {
@@ -88,10 +110,9 @@
 }
 
 .lesson-progress {
-  background: $light-gray;
-  padding: 25px;
-  margin-bottom: 25px;
-  padding-top: 5px;
+//   background: $light-gray;
+//   padding: 25px;
+//   padding-top: 5px;
 }
 
 .nav-container {
@@ -111,7 +132,7 @@
 .navbar-toggler {
   float: left;
   color: $black;
-  margin-left: 17px;
+  margin-left: 40px;
 }
 
 .nav-item button {
@@ -125,11 +146,11 @@
 
 .menu-title {
   padding-top: 5px;
+  display: none;
 }
 
 .nav-logo {
   position: absolute;
-  left: 50%;
   top: 20%;
   bottom: 43.66%;
 }
@@ -167,7 +188,7 @@
 }
 
 .lesson-title {
-  font-family: Mulish;
+  font-family: $default_font;
   font-style: normal;
   font-weight: 800;
   font-size: 24px;
@@ -176,7 +197,12 @@
 }
 
 .lesson-title-md {
-  display: none;
+  position: absolute;
+  font-family: $default_font;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin-left: 105px;
 }
 
 
@@ -223,6 +249,14 @@
   display: none;
 }
 
+#search-button-nav {
+  display: none;
+}
+
+#search-button-sidebar {
+  display: block;
+}
+
 .tablet-search {
   display: none;
 }
@@ -248,6 +282,14 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+a[rel="prev"].chapter-link {
+  margin-left: 8px;
+}
+
+a[rel="next"].chapter-link {
+  margin-right: 15px;
 }
 
 .chapter-link:hover{
@@ -285,7 +327,7 @@
     box-shadow: 0px 0px 10px 10px white;
   }
 
-  .bottom-nav.data, .bottom-nav.library, .bottom-nav.carpentries, .bottom-nav.software {
+  .bottom-nav.data, .bottom-nav.high-performance-computing, .bottom-nav.library, .bottom-nav.software, .bottom-nav.carpentries {
     border: none;
   }
 
@@ -304,6 +346,14 @@
 
   .search-form {
     margin-right: 20px;
+  }
+
+  #search-button-nav {
+    display: block;
+  }
+
+  #search-button-sidebar {
+    display: none;
   }
 
   .tablet-search {
@@ -332,10 +382,6 @@
     border: none;
   }
 
-  .mobile-title {
-    display: none;
-  }
-
   .large-logo {
     margin-left: -10px;
     margin-top: auto;
@@ -359,16 +405,16 @@
 
   .lesson-title-md {
     display: block;
-    font-family: Mulish;
+    font-family: $default_font;
     font-style: normal;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 24px;
     line-height: 40px;
     position: absolute;
-    left: 10%;
     margin-bottom: 30px;
     margin-top: 25px;
     margin-right: 200px;
+    margin-left: 85px;
   }
 
   // Top border and match the
@@ -386,16 +432,22 @@
       border-color: $dark-green;
     }
   }
-  .top-nav.software {
-    border-top: 22px solid $dark-purple;
+    .top-nav.high-performance-computing {
+    border-top: 22px solid $brown;
     .peer-reviewed {
-      border-color: $dark-purple;
+      border-color: $brown;
     }
   }
   .top-nav.library {
     border-top: 22px solid $red;
     .peer-reviewed {
       border-color: $red;
+    }
+  }
+  .top-nav.software {
+    border-top: 22px solid $dark-purple;
+    .peer-reviewed {
+      border-color: $dark-purple;
     }
   }
 
@@ -434,6 +486,14 @@
     align-items: center;
     text-align:right;
   }
+
+  a[rel="prev"].chapter-link {
+    margin-left: -17px;
+  }
+
+  a[rel="next"].chapter-link {
+    margin-right: -10px;
+  }
 }
 
 @include media-breakpoint-up(xl) {
@@ -443,6 +503,14 @@
   }
 
   .lesson-resources-side {
+    display: none;
+  }
+
+  #search-button-nav {
+    display: block;
+  }
+
+  #search-button-sidebar {
     display: none;
   }
 
@@ -462,10 +530,10 @@
 
   .lesson-title-md {
     display: inline-block;
-    font-family: Mulish;
+    font-family: $default_font;
     font-style: normal;
     font-weight: 800;
-    font-size: 32px;
+    font-size: 24px;
   }
 
   .top-nav {
@@ -513,11 +581,19 @@
     margin-left: -25px;
   }
   .progress {
-    margin-left: 65px;
-    margin-right: 65px;
+    margin-left: 67px;
+    margin-right: 52px;
   }
 
   .tablet-search-button {
     margin-right: 20px;
+  }
+
+  a[rel="prev"].chapter-link {
+    margin-left: -17px;
+  }
+
+  a[rel="next"].chapter-link {
+    margin-right: -10px;
   }
 }

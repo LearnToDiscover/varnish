@@ -8,8 +8,11 @@ node_modules/.bin/uglifyjs ${vend}/jquery/jquery.js \
   ${vend}/bootstrap/bootstrap.bundle.min.js \
   ${vend}/jquery-visible/jquery.visible.js \
   ${vend}/feather-icons/feather.js \
+  ${vend}/mermaid/mermaid.min.js \
   ${cust}/menu.js \
   ${cust}/tabs.js \
+  ${cust}/mermaid.js \
+  ${cust}/codeblocks.js \
   --compress \
   --output inst/pkgdown/assets/assets/scripts.js
 

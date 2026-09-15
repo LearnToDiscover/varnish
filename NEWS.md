@@ -1,3 +1,141 @@
+# varnish 1.1.2 [2026-08-26]
+
+## MAINTENANCE
+
+* Add ellipsis to prev/next breadcrumbs
+* Bump various dependencies
+
+
+# varnish 1.1.1 [2026-05-19]
+
+## HOTFIX RELEASE
+
+* Fix sidebar background colour
+* Improve the lesson header to tidy it up, and improve the look and feel of the progress bar
+* Remove accDescr property in figure caption, and retain in the mermaid desc property
+  PR [217](https://github.com/carpentries/varnish/pull/217) (reported @bielsnohr #189)
+
+
+# varnish 1.1.0 [2026-04-15]
+
+## ACCESSIBILITY
+
+* Fix mermaid title and description use in figure captions - **NB this will
+  require the addition of accTitle elements in all associated lessons that 
+  use mermaid diagrams**
+* Fix overall CSS color palette to pass WCAG contrast checks in many 
+  elements across light and dark mode
+* Fix li text colour in callouts in light mode
+* Fix orphaned li elements in the theme selector menu
+* Fix display of lesson title on mobile
+* Fix various invalid ARIA properties
+* Add javascript workaround to set tabindex properly on language 
+  codeblock elements - these cannot be set in sandpaper as downlit
+  simply removes any extra codeblock classes or attributes (relevant
+  comment here: https://github.com/r-lib/downlit/pull/160#issuecomment-4200380782)
+  
+## MAINTENANCE
+
+* Update MathJax from v2 to v4 to fix accessibility issues and be more up to date
+* Update README to state node24 should be installed
+
+## MISC
+
+* Thanks to @josenino95 as a new contributor for raising the WCAG issues - welcome!
+
+
+# varnish 1.0.9 [2025-12-03]
+
+## HOTFIX RELEASE
+
+* Add ORCID icon in the correct source folder, not inst - PR [186](https://github.com/carpentries/varnish/pull/186)
+
+
+# varnish 1.0.8 [2025-12-02]
+
+## NEW FEATURES
+
+* Add ORCID icons for new Cite This Lesson pages - PR [179](https://github.com/carpentries/varnish/pull/179)
+* Add parrot SVGs in place of Glosario superscript terms - PR [177](https://github.com/carpentries/varnish/pull/177)
+* Add config.yaml and template support for dropdown menus to provide links to multi-lingual lessons - 
+  PR[175](https://github.com/carpentries/varnish/pull/175) (implemented @unode)
+* Add support for [Mermaid diagrams](https://css-tricks.com/making-mermaid-diagrams-in-markdown/) - 
+  PR [125](https://github.com/carpentries/varnish/pull/125) (implemented @astroDimitrios)
+
+## BUG FIXES
+
+* Fix accordion underlining - PR [180](https://github.com/carpentries/varnish/pull/180)
+
+
+# varnish 1.0.7 [2025-08-07]
+
+## NEW FEATURES
+
+* Adjust text and background colour for inline code blocks - PR [172](https://github.com/carpentries/varnish/pull/172) ([reported](https://github.com/carpentries/workbench/issues/97) @gcapes, implemented @froggleston)
+* Fix CSS for accordion callout lists, fonts - PR [171](https://github.com/carpentries/varnish/pull/171) ([reported](https://github.com/carpentries/workbench/issues/98) @gcapes, fixed @froggleston)
+
+## MISC
+
+* Fix pak install when trying to parse .editorconfig files (@froggleston)
+* Fix link anchor colour in dark mode - PR [169](https://github.com/carpentries/varnish/pull/169) (@astroDimitrios)
+
+
+# varnish 1.0.6 [2025-05-06]
+
+## NEW FEATURES
+
+* Add support for dark mode image adjustment (@astroDimitrios, #153)
+
+## MISC
+
+* Update links to new Carpentries handbook (@robadob #164)
+* Improve h3 and h4 font sizes on large resolutions (@Sheargrub #165)
+
+
+# varnish 1.0.5 [2024-11-11]
+
+## NEW FEATURES
+
+* Two new Sass variables (`default_font` and `mono_font`) have been created to
+  simplify the process of changing the default font and monospace font. 
+  In particular, this can be helpful for forks defining their own theme
+  (@Bisaloo #151)
+* Carpentry-specific favicons are now used automatically based on the value of
+  the `carpentry:` value in the `config.yaml` file (@Bisaloo, #152, based on a
+  report from @zkamvar in #33).
+* Addition of the `caution` callout (@MttArmstrong #149)
+* Improve CSS rendering of checklists by removing the bullet point and increasing
+  spacing between checkbox and label (reported @jq-11 #156, fixed @froggleston)
+* Improve support for Ukrainian alphabet by moving from specific Mulish latin to 
+  Mulish regular font (reported @olexandr-konovalov #120, implemented 
+  @olexandr-konovalov, @froggleston #133)
+
+## MISC
+
+* Add @MttArmstrong as a new contributor - welcome!
+
+
+# varnish 1.0.4 [2024-08-23]
+
+## NEW FEATURES
+
+* Two new Sass variables (`default_font` and `mono_font`) have been created to
+  simplify the process of changing the default font and monospace font. 
+  In particular, this can be helpful for forks defining their own theme
+  (@Bisaloo #151)
+* Carpentry-specific favicons are now used automatically based on the value of
+  the `carpentry:` value in the `config.yaml` file (@Bisaloo, #152, based on a
+  report from @zkamvar in #33).
+
+## BUG FIXES
+
+* Fix dark mode figure caption bug (@astroDimitrios #145)
+* Fix CSS styling issues with the Resources section and 
+  squashed overview headings(@froggleston #147)
+* Replace old macOS runs-on action property with 
+  ubuntu-latest (@froggleston #147)
+
+
 # varnish 1.0.3 (2023-06-18)
 
 ## NEW FEATURES

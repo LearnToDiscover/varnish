@@ -18,12 +18,14 @@
   <div class="container-fluid top-nav-container">
     <div class="col-md-8">
       <div class="large-logo">
+        <a href="index.html">
         <img id="{{#yaml}}{{carpentry}}{{/yaml}}-logo" alt="{{#yaml}}{{carpentry_name}}{{/yaml}}" src="{{#site}}{{root}}{{/site}}assets/images/{{#yaml}}{{carpentry_icon}}-logo.svg{{/yaml}}">
+        </a>
         {{#yaml}}{{#life_cycle}}
         {{#pre_alpha}}
         <span class ="badge text-bg-danger">
           <abbr title="{{ translate.PreAlphaNote }}">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="alert-link">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="alert-link">
               <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="border-radius: 5px"></i>
               {{ translate.iPreAlpha }}
             </a>
@@ -34,7 +36,7 @@
         {{#alpha}}
         <span class ="badge text-bg-warning">
           <abbr title="{{ translate.AlphaNote }}">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#field-testing-alpha-stage" class="alert-link">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="alert-link">
               <i aria-hidden="true" class="icon" data-feather="alert-triangle" style="border-radius: 5px"></i>
               {{ translate.iAlpha }}
             </a>
@@ -45,7 +47,7 @@
         {{#beta}}
         <span class ="badge text-bg-info">
           <abbr title="{{ translate.BetaNote }}">
-            <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#polishing-beta-stage" class="alert-link">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="alert-link">
               <i aria-hidden="true" class="icon" data-feather="alert-circle" style="border-radius: 5px"></i>
               {{ translate.iBeta }}
             </a>
@@ -63,12 +65,23 @@
         </abbr>
         {{/doi}}
         {{/stable}}
+        {{#retired}}
+        <span class ="badge text-bg-secondary">
+          <abbr title="{{ translate.RetiredNote }}">
+            <a href="https://docs.carpentries.org/resources/curriculum/lesson-life-cycle.html" class="alert-link">
+              <i aria-hidden="true" class="icon" data-feather="alert-circle" style="border-radius: 5px"></i>
+              {{ translate.iRetired }}
+            </a>
+            <span class="visually-hidden">{{ translate.RetiredNote }}</span>
+          </abbr>
+        </span>
+        {{/retired}}
         {{/life_cycle}}{{/yaml}}
       </div>
     </div>
     <div class="selector-container">
-      <div id="theme-selector">
-        <li class="nav-item dropdown" id="theme-button-list">
+      <menu class="theme-selector" id="theme-selector-menu">
+        <li class="nav-item dropdown theme-button-list" id="theme-button-list-menu">
           <button class="btn btn-link nav-link px-0 px-lg-2 dropdown-toggle d-flex align-items-center"
                   id="bd-theme"
                   type="button"
@@ -103,7 +116,7 @@
             </li>
           </ul>
         </li>
-      </div>
+    </menu>
       {{! NOTE: the language section will likely need to be generated on {sandpaper}, so we are not going to translate this now. }}
       {{#yaml}}{{#language}}
       <div class="dropdown">
@@ -115,6 +128,18 @@
         </ul>
       </div>
       {{/language}}{{/yaml}}
+      {{#yaml}}{{#languages}}
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle " type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+          <b>{{default}}</b>  <i data-feather="chevron-down"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          {{#other}}
+          <li><button class="dropdown-item" type="button"><a href="{{ url }}">{{lang}}</a></button></li>
+          {{/other}}
+        </ul>
+      </div>
+      {{/languages}}{{/yaml}}
       <div class="dropdown" id="instructor-dropdown">
         {{#instructor}}
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -135,7 +160,6 @@
       </div>
     </div>
   </div>
-  <hr />
 </header>
 <nav class="navbar navbar-expand-xl bottom-nav {{#yaml}}{{carpentry_icon}}{{/yaml}}" aria-label="{{ translate.MainNavigation }}">
   <div class="container-fluid nav-container">
@@ -144,7 +168,9 @@
       <span class="menu-title">{{ translate.Menu }}</span>
     </button>
     <div class="nav-logo">
+      <a href="index.html">
       <img class="small-logo" alt="{{#yaml}}{{carpentry_name}}{{/yaml}}" src="{{#site}}{{root}}{{/site}}assets/images/{{#yaml}}{{carpentry_icon}}-logo-sm.svg{{/yaml}}">
+      </a>
     </div>
     <div class="lesson-title-md">
       {{# site }}{{& title }}{{/ site }}
@@ -220,27 +246,21 @@
     -->
     {{^overview}}
     {{#instructor}}
-    <a id="search-button" class="btn btn-primary" href="{{#site}}{{root}}{{/site}}instructor/aio.html" role="button" aria-label="{{ translate.SearchButton }}">{{ translate.SearchButton }}</a>
+    <a id="search-button-nav" class="btn btn-primary" href="{{#site}}{{root}}{{/site}}instructor/aio.html" role="button" aria-label="{{ translate.SearchButton }}">{{ translate.SearchButton }}</a>
     {{/instructor}}
     {{^instructor}}
-    <a id="search-button" class="btn btn-primary" href="{{#site}}{{root}}{{/site}}aio.html" role="button" aria-label="{{ translate.SearchButton }}">{{ translate.SearchButton }}</a>
+    <a id="search-button-nav" class="btn btn-primary" href="{{#site}}{{root}}{{/site}}aio.html" role="button" aria-label="{{ translate.SearchButton }}">{{ translate.SearchButton }}</a>
     {{/instructor}}
     {{/overview}}
   </div><!--/div.container-fluid -->
 </nav>
 
-<div class="col-md-12 mobile-title">
-  {{# site }}{{& title }}{{/ site }}
-</div>
-
 {{^overview}}
+{{#progress}}
 <aside class="col-md-12 lesson-progress">
-  <div style="width: {{progress}}%" class="percentage">
-    {{progress}}%
-  </div>
   <div class="progress {{#yaml}}{{carpentry_icon}}{{/yaml}}">
-    <div class="progress-bar {{#yaml}}{{carpentry_icon}}{{/yaml}}" role="progressbar" style="width: {{progress}}%" aria-valuenow="{{progress}}" aria-label="{{ translate.LessonProgress }}" aria-valuemin="0" aria-valuemax="100">
-    </div>
+    <div class="progress-bar {{#yaml}}{{carpentry_icon}}{{/yaml}}" role="progressbar" style="width: {{progress}}%" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" aria-label="{{ translate.LessonProgress }}">{{progress}}%</div>
   </div>
 </aside>
+{{/progress}}
 {{/overview}}
